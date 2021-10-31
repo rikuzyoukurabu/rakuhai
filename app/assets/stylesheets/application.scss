@@ -37,8 +37,12 @@
   // }
 
   .top-image{
-    text-align: center;
-    width: 100%;
+    // text-align: center;
+    // width: 100%;
+    // height: 50%;
+    // object-fit: cover;
+    
+    // background-image: cover;
   }
   .about_image{
     text-align: center;
@@ -49,3 +53,9 @@
     padding: 10px;
     font-family: 'Zen Kurenaido', sans-serif;
   }
+  
+// .img-fluid{
+//   max-width: 100%;
+// }
+  // .jumbotron {
+  //   background:url("top_image.jpg") center no-repeat; background-size: cover;}
