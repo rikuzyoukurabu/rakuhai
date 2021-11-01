@@ -6,10 +6,22 @@
         <ul class="navbar-nav ml-auto">
           <!--右寄せにする-->
           <% if user_signed_in? %>
+            <li><%= link_to " 地域一覧", areas_path, class:"header-button btn text-light" %></li>
+            <li><%= link_to " 建物一覧", buildings_path, class:"header-button btn text-light" %></li>
+            <li><%= link_to " トイレ一覧", toilets_path, class:"header-button btn text-light" %></li>
+            <li><%= link_to " お店一覧", shops_path, class:"header-button btn text-light" %></li>
             <li><%= link_to " ログアウト", destroy_user_session_path, method: :delete, class:"header-button btn text-light" %></li>
           <% elsif admin_signed_in? %>
+            <li><%= link_to " 地域一覧", areas_path, class:"header-button btn text-light" %></li>
+            <li><%= link_to " 建物一覧", buildings_path, class:"header-button btn text-light" %></li>
+            <li><%= link_to " トイレ一覧", toilets_path, class:"header-button btn text-light" %></li>
+            <li><%= link_to " お店一覧", shops_path, class:"header-button btn text-light" %></li>
             <li><%= link_to " ログアウト", destroy_admin_session_path, method: :delete, class:"header-button btn text-light" %></li>
           <% else %>
+            <li><%= link_to " 地域一覧", areas_path, class:"header-button btn text-light" %></li>
+            <li><%= link_to " 建物一覧", buildings_path, class:"header-button btn text-light" %></li>
+            <li><%= link_to " トイレ一覧", toilets_path, class:"header-button btn text-light" %></li>
+            <li><%= link_to " お店一覧", shops_path, class:"header-button btn text-light" %></li>
             <li><%= link_to " About", about_path, class:"header-button btn text-light" %></li>
             <li><%= link_to " 新規登録", new_user_registration_path, class:"header-button btn text-light" %></li>
             <li><%= link_to " ログイン", new_user_session_path, class:"header-button btn text-light" %></li>
