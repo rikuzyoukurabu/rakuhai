@@ -35,15 +35,23 @@
   // .footer-text {
   // color: #fff;
   // }
-
   .top-image{
-    // text-align: center;
-    // width: 100%;
-    // height: 50%;
-    // object-fit: cover;
-    
-    // background-image: cover;
+    img{
+      width: 100%;
+      height: 10%;
+      // 反応はしてるけど、そもそもの画像が小さいので引き延ばされない
+    }
   }
+  // .top_image{
+  //   // text-align: center;
+  //   // object-fit: cover;
+    
+  //   // background-image: cover;
+  //   // img{
+  //   //   width: 100%;
+  //   //   height: 30%;
+  //   // }
+  // }
   .about_image{
     text-align: center;
     margin: 10px;
