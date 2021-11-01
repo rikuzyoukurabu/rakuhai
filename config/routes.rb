@@ -12,15 +12,12 @@ Rails.application.routes.draw do
 
     resources :areas,only:[:index,:show]
 
-    resources :toilets,only:[:index,:show] do
-      resources :comments, only: [:create, :destroy]
-    end
-    resources :buildings,only:[:index,:show ]do
-      resources :comments, only: [:create, :destroy]
-    end
-    resources :shops,only:[:index,:show] do
-      resources :comments, only: [:create, :destroy]
-    end
+    resources :toilets,only:[:index,:show] 
+   
+    resources :buildings,only:[:index,:show]
+ 
+    resources :shops,only:[:index,:show] 
+ 
 
   end
 
