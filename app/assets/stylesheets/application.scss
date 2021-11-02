@@ -62,6 +62,20 @@
     font-family: 'Zen Kurenaido', sans-serif;
   }
   
+  .index-text{
+    text-align: center;
+    font-family: 'Zen Kurenaido', sans-serif;
+  }
+  .show-text{
+    font-family: 'Zen Kurenaido', sans-serif;
+  }
+  
+// レスポンシブ対応
+ @media screen and(min-width: 1400px){
+    .image_box{
+      width: 100%;
+  }
+ }
 // .img-fluid{
 //   max-width: 100%;
 // }
