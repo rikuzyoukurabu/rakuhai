@@ -1,2 +1,33 @@
 <h1>User::Areas#show</h1>
 <p>Find me in app/views/user/areas/show.html.erb</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="show-text">
+        <table class ="table table-bordered">
+          <thead>
+            <tr>
+              <th>写真</th>
+              <th>トイレ名</th>
+              <th>説明</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @area.toilets.each do |toilet| %>
+            <tr>
+              <td><%= attachment_image_tag toilet,:image,format: 'jpeg', fallback: "new_toilet_image.jpg",size: "250x150",class: "image_box" %></td>
+              <td><%= toilet.toilet_name %></td>
+              <td><%= toilet.introduction %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
