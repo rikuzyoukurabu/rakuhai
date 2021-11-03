@@ -11,6 +11,7 @@
               <th>写真</th>
               <th>トイレ名</th>
               <th>説明</th>
+              <th>編集削除ボタン</th>
             </tr>
           </thead>
             <%= link_to "トイレ新規投稿", new_toilet_path, class:"header-button btn text-light" %>
@@ -20,6 +21,7 @@
               <td><%= attachment_image_tag toilet,:image,format: 'jpeg', fallback: "new_toilet_image.jpg",size: "250x150",class: "image_box" %></td>
               <td><%= toilet.toilet_name %></td>
               <td><%= toilet.introduction %></td>
+              <td><%= link_to "編集",edit_toilet_path(toilet),class: "btn bhn-primary" %></td>
             </tr>
             <% end %>
           </tbody>
@@ -38,6 +40,7 @@
               <th>写真</th>
               <th>お店名</th>
               <th>説明</th>
+              
             </tr>
           </thead>
             <%= link_to "お店新規投稿", new_shop_path, class:"header-button btn text-light" %>
@@ -47,6 +50,7 @@
               <td><%= attachment_image_tag shop,:image,format: 'jpeg', fallback: "no_image_shop.jpg",size: "250x150",class: "image_box" %></td>
               <td><%= shop.shop_name %></td>
               <td><%= shop.introduction %></td>
+              
             </tr>
             <% end %>
           </tbody>

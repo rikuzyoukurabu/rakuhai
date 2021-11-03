@@ -15,7 +15,7 @@
               <% @areas.each do |area| %>
             <tr>
               <td>
-                <%= link_to area.area_name,area_path(area)%>
+                <%= link_to area.area_name,area_path(area) %>
                 <%= (area.toilets + area.shops + area.buildings).count %>
               </td>
             </tr>
