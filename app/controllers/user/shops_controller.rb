@@ -4,7 +4,7 @@ class User::ShopsController < ApplicationController
 
   def show
   end
-  
+
   def new
     @shop = Shop.new
     @area = Area.all
@@ -14,7 +14,10 @@ class User::ShopsController < ApplicationController
     @shop = Shop.new(shop_params)
     @shop.save
     redirect_to areas_path
-   
+  end
+
+  def edit
+    @shop = Shop.find(params[:id])
   end
 
   private
