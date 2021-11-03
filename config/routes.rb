@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
     resources :areas,only:[:index,:show,:new]
 
-    resources :toilets,only:[:index,:show,:new,:create,:edit]
+    resources :toilets,only:[:index,:show,:new,:create,:edit,:update]
 
     resources :buildings,only:[:index,:show,:new,:create,:edit]
 
