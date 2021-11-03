@@ -13,6 +13,7 @@
               <th>説明</th>
             </tr>
           </thead>
+            <%= link_to "トイレ新規投稿", new_toilet_path, class:"header-button btn text-light" %>
           <tbody>
             <% @area.toilets.each do |toilet| %>
             <tr>
@@ -39,6 +40,7 @@
               <th>説明</th>
             </tr>
           </thead>
+            <%= link_to "お店新規投稿", new_shop_path, class:"header-button btn text-light" %>
           <tbody>
             <% @area.shops.each do |shop| %>
             <tr>
@@ -65,6 +67,7 @@
               <th>説明</th>
             </tr>
           </thead>
+            <%= link_to "建物新規投稿", new_building_path, class:"header-button btn text-light" %>
           <tbody>
             <% @area.buildings.each do |building| %>
             <tr>
