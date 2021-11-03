@@ -14,9 +14,9 @@ Rails.application.routes.draw do
 
     resources :toilets,only:[:index,:show,:new,:create,:edit]
 
-    resources :buildings,only:[:index,:show,:new,:create]
+    resources :buildings,only:[:index,:show,:new,:create,:edit]
 
-    resources :shops,only:[:index,:show,:new,:create]
+    resources :shops,only:[:index,:show,:new,:create,:edit]
 
 
   end

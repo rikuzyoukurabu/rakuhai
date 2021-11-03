@@ -4,7 +4,7 @@ class User::BuildingsController < ApplicationController
 
   def show
   end
-  
+
   def new
     @building = Building.new
     @area = Area.all
@@ -14,7 +14,10 @@ class User::BuildingsController < ApplicationController
     @building = Building.new(building_params)
     @building.save
     redirect_to areas_path
-   
+  end
+
+  def edit
+    @building = Building.find(params[:id])
   end
 
   private

@@ -15,7 +15,7 @@ class User::ToiletsController < ApplicationController
     @toilet.save
     redirect_to areas_path
   end
-  
+
   def edit
     @toilet = Toilet.find(params[:id])
   end
