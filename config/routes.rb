@@ -10,13 +10,13 @@ Rails.application.routes.draw do
     root to: "homes#top"
     get "/about" => "homes#about"
 
-    resources :areas,only:[:index,:show]
+    resources :areas,only:[:index,:show,:new]
 
-    resources :toilets,only:[:index,:show] 
+    resources :toilets,only:[:index,:show,:new,:create] 
    
-    resources :buildings,only:[:index,:show]
+    resources :buildings,only:[:index,:show,:new]
  
-    resources :shops,only:[:index,:show] 
+    resources :shops,only:[:index,:show,:new] 
  
 
   end
