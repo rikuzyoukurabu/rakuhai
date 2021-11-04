@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col-12">
       <div class="new-post">
+        <%= render 'user/toilets/errors' , object:@shop %>
         <%= form_with model: @shop, local:true do |f| %>
         <h3>お店新規投稿</h3>
 

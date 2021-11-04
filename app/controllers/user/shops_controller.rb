@@ -12,12 +12,21 @@ class User::ShopsController < ApplicationController
 
   def create
     @shop = Shop.new(shop_params)
-    @shop.save
+    if @shop.save
     redirect_to areas_path
+    else
+    render :new
+    end
   end
 
   def edit
     @shop = Shop.find(params[:id])
+  end
+
+  def update
+    @shop = Shop.find(params[:id])
+    @shop.update(shop_params)
+    redirect_to areas_path
   end
 
   private
