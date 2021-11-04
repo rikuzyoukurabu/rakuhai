@@ -13,9 +13,10 @@ class User::ToiletsController < ApplicationController
   def create
     @toilet = Toilet.new(toilet_params)
     if @toilet.save
-    redirect_to areas_path
+      flash[:notice] = '投稿が完了しました！'
+      redirect_to areas_path
     else
-    render :new
+      render :new
     end
   end
 
@@ -26,9 +27,10 @@ class User::ToiletsController < ApplicationController
   def update
     @toilet = Toilet.find(params[:id])
     @toilet.update(toilet_params)
+    flash[:notice] = '編集が完了しました！'
     redirect_to areas_path
   end
-  
+
   def destroy
     toilet = Toilet.find(params[:id])
     toilet.destroy
