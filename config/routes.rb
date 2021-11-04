@@ -12,11 +12,11 @@ Rails.application.routes.draw do
 
     resources :areas,only:[:index,:show,:new]
 
-    resources :toilets,only:[:index,:show,:new,:create,:edit,:update]
+    resources :toilets,only:[:index,:show,:new,:create,:edit,:update,:destroy]
 
-    resources :buildings,only:[:index,:show,:new,:create,:edit]
+    resources :buildings,only:[:index,:show,:new,:create,:edit,:update,:destroy]
 
-    resources :shops,only:[:index,:show,:new,:create,:edit]
+    resources :shops,only:[:index,:show,:new,:create,:edit,:update,:destroy]
 
 
   end

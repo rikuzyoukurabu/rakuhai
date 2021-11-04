@@ -28,6 +28,12 @@ class User::ToiletsController < ApplicationController
     @toilet.update(toilet_params)
     redirect_to areas_path
   end
+  
+  def destroy
+    toilet = Toilet.find(params[:id])
+    toilet.destroy
+    redirect_to areas_path
+  end
 
   private
   def toilet_params
