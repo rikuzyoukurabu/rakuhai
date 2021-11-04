@@ -29,6 +29,12 @@ class User::BuildingsController < ApplicationController
     redirect_to areas_path
   end
 
+  def destroy
+    building = Building.find(params[:id])
+    building.destroy
+    redirect_to areas_path
+  end
+
   private
   def building_params
     params.require(:building).permit(:building_name,:introduction,:image,:area_id)
