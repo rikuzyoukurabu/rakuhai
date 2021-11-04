@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_02_070956) do
+ActiveRecord::Schema.define(version: 2021_11_04_113303) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,6 +26,15 @@ ActiveRecord::Schema.define(version: 2021_11_02_070956) do
 
   create_table "areas", force: :cascade do |t|
     t.string "area_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "building_comments", force: :cascade do |t|
+    t.string "building_id"
+    t.string "user_id"
+    t.text "comment"
+    t.string "image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -47,10 +56,28 @@ ActiveRecord::Schema.define(version: 2021_11_02_070956) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "shop_comments", force: :cascade do |t|
+    t.string "shop_id"
+    t.string "user_id"
+    t.text "comment"
+    t.string "image_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "shops", force: :cascade do |t|
     t.string "area_id"
     t.string "shop_name"
     t.string "introduction"
+    t.string "image_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "toilet_comments", force: :cascade do |t|
+    t.string "toilet_id"
+    t.string "user_id"
+    t.text "comment"
     t.string "image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

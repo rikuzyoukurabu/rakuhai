@@ -13,6 +13,7 @@ class User::ShopsController < ApplicationController
   def create
     @shop = Shop.new(shop_params)
     if @shop.save
+      flash[:notice] = '投稿が完了しました！'
     redirect_to areas_path
     else
     render :new
@@ -26,6 +27,7 @@ class User::ShopsController < ApplicationController
   def update
     @shop = Shop.find(params[:id])
     @shop.update(shop_params)
+    flash[:notice] = '編集が完了しました！'
     redirect_to areas_path
   end
 
