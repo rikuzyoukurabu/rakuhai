@@ -13,6 +13,7 @@ class User::BuildingsController < ApplicationController
   def create
     @building = Building.new(building_params)
     if @building.save
+      flash[:notice] = '投稿が完了しました！'
     redirect_to areas_path
     else
     render :new
@@ -26,6 +27,7 @@ class User::BuildingsController < ApplicationController
   def update
     @building = Building.find(params[:id])
     @building.update(building_params)
+    flash[:notice] = '編集が完了しました！'
     redirect_to areas_path
   end
 
