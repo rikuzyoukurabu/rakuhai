@@ -21,9 +21,14 @@ Rails.application.routes.draw do
 
   end
 
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'user/sessions#guest_sign_in'
+  end
+
   devise_for :users,skip:[:passwords],controllers: {
     sessions:      'user/sessions',
-    registrations: 'user/registrations'
+    registrations: 'user/registrations',
+    passwords: 'users/passwords'
   }
 
   devise_for :admin, skip: [:registrations, :passwords],controllers: {
