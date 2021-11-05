@@ -1,6 +1,7 @@
 class BuildingComment < ApplicationRecord
   belongs_to :building
-
+  belongs_to :user
+  
   attachment :image
 
   validates :comment,presence: true

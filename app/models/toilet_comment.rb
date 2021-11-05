@@ -1,5 +1,6 @@
 class ToiletComment < ApplicationRecord
   belongs_to :toilet
+  belongs_to :user
 
   attachment :image
 

@@ -21,7 +21,8 @@
               <td><%= attachment_image_tag toilet,:image,format: 'jpeg', fallback: "new_toilet_image.jpg",size: "250x150",class: "image_box" %></td>
               <td><%= toilet.toilet_name %></td>
               <td><%= toilet.introduction %>
-                  <%= link_to "コメントはコチラ",toilet_path(toilet),class: "btn btn-primary m-1" %></td>
+                  <p>コメント数:<%= toilet.toilet_comments.count %>
+                  <%= link_to "コメントはコチラ",toilet_path(toilet),class: "btn btn-primary m-1" %></p></td>
               <td><%= link_to "編集",edit_toilet_path(toilet),class: "btn btn-primary btn-circle m-1" %><br><br>
                   <%= link_to "削除",toilet_path(toilet),method: :delete ,class: "btn btn-danger btn-circle m-1" %></td>
             </tr>

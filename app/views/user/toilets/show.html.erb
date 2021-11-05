@@ -25,15 +25,16 @@
 <div>
 <p>コメント数:<%= @toilet.toilet_comments.count %></p>
 <% @toilet.toilet_comments.each do |toilet_comment| %><br>
-<%= toilet_comment.user_id %><br>
+<%= toilet_comment.user.name %><br>
 <!--本来はuser.name ゲストログインのnameがnillなのでエラー出てる-->
+<!--nameが出せないのは何故-->
 <%= toilet_comment.comment %>
 
-
+ <% if toilet_comment.user == current_user %>
 <div>
   <%= link_to "削除",toilet_toilet_comment_path(toilet_comment.toilet,toilet_comment),method: :delete %>
 </div>
-
+<% end %>
 <% end %>
 </div>
 
