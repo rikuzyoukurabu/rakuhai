@@ -3,6 +3,8 @@ class User::ToiletsController < ApplicationController
   end
 
   def show
+    @toilet = Toilet.find(params[:id])
+    @toilet_comment = ToiletComment.new
   end
 
   def new
