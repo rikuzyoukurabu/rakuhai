@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col-12">
       <div class="new-post">
-        <h3>トイレ詳細画面</h3>
+        <h3>トイレ詳細画面 コメント数:<%= @toilet.toilet_comments.count %></h3>
           <table class="table table-bordered">
             <thead>
               <tr style="text-align: center;">
@@ -22,28 +22,30 @@
               </tr>
             </tbody>
           </table>
-<div>
-<p>コメント数:<%= @toilet.toilet_comments.count %></p>
-<% @toilet.toilet_comments.each do |toilet_comment| %><br>
-<%= toilet_comment.user.name %><br>
-<!--本来はuser.name ゲストログインのnameがnillなのでエラー出てる-->
-<!--nameが出せないのは何故-->
-<%= toilet_comment.comment %>
-
- <% if toilet_comment.user == current_user %>
-<div>
-  <%= link_to "削除",toilet_toilet_comment_path(toilet_comment.toilet,toilet_comment),method: :delete %>
-</div>
-<% end %>
-<% end %>
-</div>
-
-<div>
-<%= form_with(model:[@toilet, @toilet_comment], local: true) do |f| %>
-  <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
-  <%= f.submit "送信する" %>
-<% end %>
-</div>
+          <div>
+              <% @toilet.toilet_comments.each do |toilet_comment| %><br>
+                ユーザー名:<%= toilet_comment.user.name %><br>
+                投稿コメント<%= toilet_comment.comment %>
+            
+              <% if toilet_comment.user == current_user %>
+            <div>
+              <%= link_to "削除",toilet_toilet_comment_path(toilet_comment.toilet,toilet_comment),method: :delete,class: "btn btn-danger" %>
+            </div>
+              <% end %>
+              <% end %>
+            </div>
+            
+            <div>
+            <%= form_with(model:[@toilet, @toilet_comment], local: true) do |f| %>
+            
+              <%= f.label :画像, class: "form-label" %><br>
+              <%= f.attachment_field :image %><br><br>
+              
+              <%= f.label :コメント, class: "form-label" %><br>
+              <%= f.text_area :comment, class: "form-control",rows:'3',placeholder: "コメントをここに" %><br>
+              <%= f.submit "コメントする" %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
