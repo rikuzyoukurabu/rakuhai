@@ -27,3 +27,16 @@
     </div>
   </div>
 </div>
+<p>コメント数:<%= @toilet.toilet_comments.count %></p>
+<% @toilet.toilet_comments.each do |toilet_comment| %><br>
+<%= toilet_comment.user.name %><br>
+<%= toilet_comment.comment %>
+<% end %>
+
+
+<div>
+<%= form_with(model:[@toilet, @toilet_comment], local: true) do |f| %>
+  <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+  <%= f.submit "送信する" %>
+<% end %>
+</div>
