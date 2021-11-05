@@ -11,16 +11,21 @@ class User::ToiletCommentsController < ApplicationController
   end
   
   def destroy
+    @toilet = Toilet.find(params[:toilet_id])
+    @toilet_comment = @toilet.toilet_comments.find(params[:id])
+    @toilet_comment.destroy
+    redirect_to areas_path
+    
   end
   
   def index
     @toilet = Toilet.find(params[:id])
-    @toilet_comments = ToiletComments.find(params[:id])
   end
   
   def show
     @toilet = Toilet.find(params[:id])
     @user = User.find(params[:id])
+    # @toilet_comments = ToiletComments.find(params[:id])
   end
   
   def toilet_comment_params
