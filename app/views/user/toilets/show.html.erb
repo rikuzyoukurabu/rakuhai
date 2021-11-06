@@ -6,6 +6,17 @@
     <div class="col-12">
       <div class="new-post">
         <h3>トイレ詳細画面 コメント数:<%= @toilet.toilet_comments.count %></h3>
+        
+        <% if @toilet.favorited_by?(current_user) %>
+        <%= link_to toilet_favorites_path(@toilet),method: :delete do %>
+            <i class="fas fa-heart"></i><%= @toilet.favorites.count %>イイネ!!
+            <% end %>
+          <% else %>
+          <%= link_to toilet_favorites_path(@toilet),method: :post do %>
+              <i class="far fa-heart"></i><%= @toilet.favorites.count %>イイネ!!
+              <% end %>
+            <% end %>
+            
           <table class="table table-bordered">
             <thead>
               <tr style="text-align: center;">
@@ -22,32 +33,40 @@
               </tr>
             </tbody>
           </table>
-          <div>
-              <% @toilet.toilet_comments.each do |toilet_comment| %><br>
-                ユーザー名:<%= toilet_comment.user.name %><br>
-                投稿コメント<%= toilet_comment.comment %>
-            
-              <% if toilet_comment.user == current_user %>
-            <div>
-              <%= link_to "削除",toilet_toilet_comment_path(toilet_comment.toilet,toilet_comment),method: :delete,class: "btn btn-danger" %>
-            </div>
-              <% end %>
-              <% end %>
-            </div>
-            
-            <div>
-            <%= form_with(model:[@toilet, @toilet_comment], local: true) do |f| %>
-            
-              <%= f.label :画像, class: "form-label" %><br>
-              <%= f.attachment_field :image %><br><br>
-              
-              <%= f.label :コメント, class: "form-label" %><br>
-              <%= f.text_area :comment, class: "form-control",rows:'3',placeholder: "コメントをここに" %><br>
-              <%= f.submit "コメントする" %>
-            <% end %>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
+    <div class="container">
+      <div class="row">
+          <div class="col-12">
+            <div class="new-post">
+              <% @toilet.toilet_comments.each do |toilet_comment| %>
+              <div class="row" style="margin: 10px">
+                <div class="col-3" style="text-align: center;">
+                  <%= attachment_image_tag toilet_comment,:image,format: 'jpeg', fallback: "new_toilet_image.jpg",size: "180x130" %>
+                </div>
+                <div class="col-9">
+                  ユーザー名:<%= toilet_comment.user.name %>
+                  <p>投稿コメント<%= toilet_comment.comment %></p>
+                    <% if toilet_comment.user == current_user %>
+                    <%= link_to "削除",toilet_toilet_comment_path(toilet_comment.toilet,toilet_comment),method: :delete,class: "btn btn-danger" %>
+                    <% end %>
+                </div>
+              </div>
+              <% end %>
+            <div>
+              <%= form_with(model:[@toilet, @toilet_comment], local: true) do |f| %>
+            
+                <%= f.label :画像, class: "form-label" %><br>
+                <%= f.attachment_field :image %><br><br>
+                
+                <%= f.label :コメント, class: "form-label" %><br>
+                <%= f.text_area :comment, class: "form-control",rows:'3',placeholder: "コメントをここに" %><br>
+                <%= f.submit "コメントする" %>
+              <% end %>
+           </div>
+         </div>
+        </div>
+      </div>
+    </div>
