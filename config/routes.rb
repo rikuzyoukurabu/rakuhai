@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
 
-
   namespace :admin do
     root to: "homes#top"
   end
@@ -17,8 +16,9 @@ Rails.application.routes.draw do
       resource :favorites,only:[:create,:destroy]
     end
     resources :buildings,only:[:index,:show,:new,:create,:edit,:update,:destroy]
-
     resources :shops,only:[:index,:show,:new,:create,:edit,:update,:destroy]
+    
+    resources :users,only:[:show]
 
 
   end
