@@ -25,6 +25,6 @@ class User::ToiletCommentsController < ApplicationController
   # end
   
   def toilet_comment_params
-    params.require(:toilet_comment).permit(:comment)
+    params.require(:toilet_comment).permit(:comment, :image)
   end
 end

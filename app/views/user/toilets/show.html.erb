@@ -8,11 +8,11 @@
         <h3>トイレ詳細画面 コメント数:<%= @toilet.toilet_comments.count %></h3>
         
         <% if @toilet.favorited_by?(current_user) %>
-        <%= link_to toilet_favorites_path(@toilet),method: :delete do %>
+        <%= link_to toilet_favorites_path(@toilet),method: :delete,remote: true do %>
             <i class="fas fa-heart"></i><%= @toilet.favorites.count %>イイネ!!
             <% end %>
           <% else %>
-          <%= link_to toilet_favorites_path(@toilet),method: :post do %>
+          <%= link_to toilet_favorites_path(@toilet),method: :post,remote: do %>
               <i class="far fa-heart"></i><%= @toilet.favorites.count %>イイネ!!
               <% end %>
             <% end %>

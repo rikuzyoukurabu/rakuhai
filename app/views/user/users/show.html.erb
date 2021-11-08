@@ -1,2 +1,8 @@
 <h1>User::Users#show</h1>
 <p>Find me in app/views/user/users/show.html.erb</p>
+
+<%= @user.name %>
+<% @toilet_comments.each do |toilet_comment| %>
+<%= toilet_comment.comment %>
+<% end %>
+
