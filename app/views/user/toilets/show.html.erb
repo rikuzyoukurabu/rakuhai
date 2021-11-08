@@ -6,17 +6,10 @@
     <div class="col-12">
       <div class="new-post">
         <h3>トイレ詳細画面 コメント数:<%= @toilet.toilet_comments.count %></h3>
-        
-        <% if @toilet.favorited_by?(current_user) %>
-        <%= link_to toilet_favorites_path(@toilet),method: :delete,remote: true do %>
-            <i class="fas fa-heart"></i><%= @toilet.favorites.count %>イイネ!!
-            <% end %>
-          <% else %>
-          <%= link_to toilet_favorites_path(@toilet),method: :post,remote: do %>
-              <i class="far fa-heart"></i><%= @toilet.favorites.count %>イイネ!!
-              <% end %>
-            <% end %>
-            
+        <p id = "favorite_buttons_<%= @toilet.id %>">
+        <%= render 'user/favorites/favorite' , toilet: @toilet %>
+        </p>
+
           <table class="table table-bordered">
             <thead>
               <tr style="text-align: center;">
@@ -57,10 +50,10 @@
               <% end %>
             <div>
               <%= form_with(model:[@toilet, @toilet_comment], local: true) do |f| %>
-            
+
                 <%= f.label :画像, class: "form-label" %><br>
                 <%= f.attachment_field :image %><br><br>
-                
+
                 <%= f.label :コメント, class: "form-label" %><br>
                 <%= f.text_area :comment, class: "form-control",rows:'3',placeholder: "コメントをここに" %><br>
                 <%= f.submit "コメントする" %>
