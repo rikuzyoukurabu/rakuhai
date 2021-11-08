@@ -16,7 +16,7 @@ class User::ToiletsController < ApplicationController
     @toilet = Toilet.new(toilet_params)
     if @toilet.save
       flash[:notice] = '投稿が完了しました！'
-      redirect_to areas_path
+      redirect_to area_path
     else
       render :new
     end
