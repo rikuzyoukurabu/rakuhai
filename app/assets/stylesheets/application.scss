@@ -45,7 +45,7 @@
   // .top_image{
   //   // text-align: center;
   //   // object-fit: cover;
-    
+
   //   // background-image: cover;
   //   // img{
   //   //   width: 100%;
@@ -61,7 +61,7 @@
     padding: 10px;
     font-family: 'Zen Kurenaido', sans-serif;
   }
-  
+
   .index-text{
     text-align: center;
     font-family: 'Zen Kurenaido', sans-serif;
@@ -92,10 +92,28 @@
   width: 180px;
   height: 130;
 }
+.comment-container{
+  border: solid;
+  border-color: #f5f5f5;
+  padding: 10px;
+  margin: 10px;
+}
+.create-date{
+  text-align: end;
+}
+.user-show{
+  font-family: 'Zen Kurenaido', sans-serif;
+}
+.comment{
+  border: solid;
+  border-color: #f5f5f5;
+  padding: 10px;
+  margin: 10px;
+}
   // .link{
   //   text-decoration: none;
   //   text-boder
-  //   color: #00008b; 
+  //   color: #00008b;
   // }
 // レスポンシブ対応
  @media screen and(min-width: 1200px){

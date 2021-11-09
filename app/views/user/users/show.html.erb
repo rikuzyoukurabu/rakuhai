@@ -1,8 +1,26 @@
 <h1>User::Users#show</h1>
 <p>Find me in app/views/user/users/show.html.erb</p>
 
-<%= @user.name %>
-<% @toilet_comments.each do |toilet_comment| %>
-<%= toilet_comment.comment %>
-<% end %>
 
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="user-show">
+        <h3 style="border-bottom: solid; border-bottom-color: #dcdcdc;">ユーザー名:<%= @user.name %></h3><br>
+        <h4 style="border-bottom: solid; border-bottom-color: #dcdcdc;">投稿コメント一覧 コメント数:<%= @toilet_comments.count %></h4><br>
+          <% @toilet_comments.each do |toilet_comment| %>
+        <div class="comment">
+          <p>トイレ名：<%= toilet_comment.toilet.toilet_name %></p>
+          <p>投稿コメント：<%= toilet_comment.comment %></p>
+          
+          <!--<% if toilet_comment.user == current_user %>-->
+          <!--  <%= link_to "削除",toilet_toilet_comment_path(toilet_comment.toilet,toilet_comment.comment),method: :delete ,class: "btn btn-danger" %>-->
+          <!--<% end %>-->
+        </div>
+          <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
