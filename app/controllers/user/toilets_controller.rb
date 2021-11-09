@@ -6,7 +6,7 @@ class User::ToiletsController < ApplicationController
     @toilet = Toilet.find(params[:id])
     @toilet_comment = ToiletComment.new
     @comments = @toilet.toilet_comments.order(created_at: :desc)
-    # descを使用してコメント作成順に表示
+    # descを使用してコメント作成順に表示させる
   end
 
   def new

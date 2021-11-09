@@ -2,7 +2,7 @@ class User::FavoritesController < ApplicationController
   def create
     @toilet = Toilet.find(params[:toilet_id])
     @favorite = current_user.favorites.new(toilet_id: @toilet.id)
-    @favorite.save!
+    @favorite.save
     # redirect_to toilet_path(@toilet)
   end
 
