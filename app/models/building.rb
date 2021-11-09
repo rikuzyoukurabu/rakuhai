@@ -1,7 +1,7 @@
 class Building < ApplicationRecord
   belongs_to :area
   has_many :building_comments, dependent: :destroy
-  has_many :favorites, dependent: :destroy
+  has_many :building_favorites, dependent: :destroy
 
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?

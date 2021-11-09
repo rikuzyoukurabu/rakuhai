@@ -3,6 +3,10 @@ class User::ShopsController < ApplicationController
   end
 
   def show
+    @shop = Shop.find(params[:id])
+    @shop_comment = ShopComment.new
+    @comments = @shop.shop_comments.order(created_at: :desc)
+    # descを使用してコメント作成順に表示させる
   end
 
   def new

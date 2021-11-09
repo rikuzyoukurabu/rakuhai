@@ -16,7 +16,11 @@ Rails.application.routes.draw do
       resource :favorites,only:[:create,:destroy]
     end
     resources :buildings,only:[:index,:show,:new,:create,:edit,:update,:destroy]
-    resources :shops,only:[:index,:show,:new,:create,:edit,:update,:destroy]
+    
+    resources :shops,only:[:index,:show,:new,:create,:edit,:update,:destroy] do
+      resources :shop_comments,only:[:create,:destroy]
+      resource :favorites,only:[:create,:destroy]
+    end
     
     resources :users,only:[:show]
 
