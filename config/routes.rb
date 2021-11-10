@@ -15,7 +15,10 @@ Rails.application.routes.draw do
       resources :toilet_comments,only:[:create,:destroy]
       resource :favorites,only:[:create,:destroy]
     end
-    resources :buildings,only:[:index,:show,:new,:create,:edit,:update,:destroy]
+    resources :buildings,only:[:index,:show,:new,:create,:edit,:update,:destroy] do
+      resources :building_comments,only:[:create,:destroy]
+      resource :building_favorites,only:[:create,:destroy]
+    end
 
     resources :shops,only:[:index,:show,:new,:create,:edit,:update,:destroy] do
       resources :shop_comments,only:[:create,:destroy]

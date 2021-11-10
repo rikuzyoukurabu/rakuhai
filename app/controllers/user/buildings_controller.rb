@@ -3,6 +3,10 @@ class User::BuildingsController < ApplicationController
   end
 
   def show
+    @building = Building.find(params[:id])
+    @building_comment = BuildingComment.new
+    @comments = @building.building_comments.order(created_at: :desc)
+    # descを使用してコメント作成順に表示させる
   end
 
   def new
