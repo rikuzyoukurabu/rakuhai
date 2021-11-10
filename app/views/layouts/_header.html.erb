@@ -6,6 +6,7 @@
         <ul class="navbar-nav ml-auto">
           <!--右寄せにする-->
           <% if user_signed_in? %>
+            <p class="navbar-item">ようこそ<%= current_user.name %> さん</p>
             <li><%= link_to " 地域一覧", areas_path, class:"header-button btn text-light" %></li>
             <li><%= link_to " マイページ", user_path(current_user.id), class:"header-button btn text-light" %></li>
             <li><%= link_to " ログアウト", destroy_user_session_path, method: :delete, class:"header-button btn text-light" %></li>

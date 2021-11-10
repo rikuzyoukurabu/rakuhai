@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
 
+  namespace :user do
+    get 'news/index'
+  end
   namespace :admin do
     root to: "homes#top"
   end
