@@ -6,8 +6,8 @@ class User < ApplicationRecord
   has_many :building_comments, dependent: :destroy
   has_many :shop_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  has_many :shops_favorites, dependent: :destroy
-  has_many :buildingsfavorites, dependent: :destroy
+  has_many :shop_favorites, dependent: :destroy
+  has_many :building_favorites, dependent: :destroy
 
 
   devise :database_authenticatable, :registerable,

@@ -7,7 +7,7 @@
       <div class="new-post">
         <h3>店詳細ページ</h3>
         <p id = "favorite_buttons_<%= @shop.id %>">
-        
+        <%= render 'user/shop_favorites/favorite' , shop: @shop %>
         </p>
           <table class="table table-bordered">
             <thead>
