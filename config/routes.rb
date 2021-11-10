@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-
-  namespace :user do
-    get 'news/index'
-  end
   namespace :admin do
     root to: "homes#top"
   end
@@ -11,6 +7,8 @@ Rails.application.routes.draw do
   scope module: :user do
     root to: "homes#top"
     get "/about" => "homes#about"
+    get 'news/index'
+    get "news/data"
 
     resources :areas,only:[:index,:show,:new]
 

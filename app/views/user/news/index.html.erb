@@ -1,2 +1,17 @@
 <h1>User::News#index</h1>
 <p>Find me in app/views/user/news/index.html.erb</p>
+
+<div class="container">
+  <p>ニュース</p>
+  <hr>
+  <div id="result">no information...</div>
+  <script>
+  var f = function(){
+      $.ajax({
+          type: 'GET',
+          url: '/news/data'
+      });
+  };
+  f();
+  </script>
+</div>

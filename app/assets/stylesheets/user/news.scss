@@ -1,3 +1,21 @@
 // Place all the styles related to the user/news controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.image_data{
+  width: 200px;
+  height: 200px;
+  position:relative;
+  left: 100px;
+}
+.time_data{
+  text-align: right;
+}
+.yahoo_link{
+  float: right;
+  margin: 20px;
+}
+.news-image{
+  text-align: center;
+}
