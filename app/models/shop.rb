@@ -4,7 +4,7 @@ class Shop < ApplicationRecord
   has_many :shop_favorites, dependent: :destroy
 
   def favorited_by?(user)
-    favorites.where(user_id: user.id).exists?
+    shop_favorites.where(user_id: user.id).exists?
   end
 
   attachment :image
