@@ -4,6 +4,11 @@ Rails.application.routes.draw do
     root to: "homes#top"
   end
 
+  devise_for :users,skip:[:passwords],controllers: {
+    sessions:      'user/sessions',
+    registrations: 'user/registrations',
+    passwords: 'users/passwords'
+  }
   scope module: :user do
     root to: "homes#top"
     get "/about" => "homes#about"
@@ -26,20 +31,13 @@ Rails.application.routes.draw do
       resource :shop_favorites,only:[:create,:destroy]
     end
 
-    resources :users,only:[:show]
-
-
+    resources :users,only:[:show,:edit,:update]
   end
 
   devise_scope :user do
     post 'users/guest_sign_in', to: 'user/sessions#guest_sign_in'
   end
 
-  devise_for :users,skip:[:passwords],controllers: {
-    sessions:      'user/sessions',
-    registrations: 'user/registrations',
-    passwords: 'users/passwords'
-  }
 
   devise_for :admin, skip: [:registrations, :passwords],controllers: {
     sessions: 'admin/sessions'

@@ -1,12 +1,13 @@
 <h1>User::Users#show</h1>
 <p>Find me in app/views/user/users/show.html.erb</p>
 
-
-
 <div class="container">
   <div class="row">
     <div class="col-12">
       <div class="user-show">
+        <% if @user.id == current_user.id %>
+          <p><%= link_to "編集", edit_user_path,class:"btn btn-primary btn-circle m-1" %></p>
+        <% end %>
         <h3 style="border-bottom: solid; border-bottom-color: #dcdcdc;">ユーザー名:<%= @user.name %></h3><br>
         <h4 style="border-bottom: solid; border-bottom-color: #dcdcdc;">投稿コメント一覧 コメント数:<%= (@toilet_comments + @shop_comments + @building_comments).count %></h4><br>
           <% @toilet_comments.each do |toilet_comment| %>
