@@ -1,4 +1,6 @@
 class User::ToiletCommentsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
 
   def create
     @toilet = Toilet.find(params[:toilet_id])
@@ -8,7 +10,7 @@ class User::ToiletCommentsController < ApplicationController
     @comments = @toilet.toilet_comments.order(created_at: :desc)
 
     @toilet_comment.save
-
+    flash[:notice] = '投稿が完了しました！'
     # redirect_to toilet_path(@toilet)
     render :index
 
@@ -20,6 +22,7 @@ class User::ToiletCommentsController < ApplicationController
     @comments = @toilet.toilet_comments.order(created_at: :desc)
     @toilet_comment.destroy
     # redirect_to toilet_path(@toilet)
+    flash[:notice] = '削除が完了しました！'
     render :index
 
   end

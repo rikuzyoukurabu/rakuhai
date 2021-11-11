@@ -1,4 +1,5 @@
 class User::FavoritesController < ApplicationController
+  before_action :authenticate_user!
   def create
     @toilet = Toilet.find(params[:toilet_id])
     @favorite = current_user.favorites.new(toilet_id: @toilet.id)

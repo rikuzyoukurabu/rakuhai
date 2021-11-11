@@ -1,4 +1,6 @@
 class User::ShopCommentsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
   def create
     @shop = Shop.find(params[:shop_id])
     @shop_comment = ShopComment.new(shop_comment_params)
@@ -7,7 +9,7 @@ class User::ShopCommentsController < ApplicationController
     @comments = @shop.shop_comments.order(created_at: :desc)
 
     @shop_comment.save
-
+    flash[:notice] = '投稿が完了しました！'
     # redirect_to toilet_path(@toilet)
     render :index
 
@@ -19,6 +21,7 @@ class User::ShopCommentsController < ApplicationController
     @comments = @shop.shop_comments.order(created_at: :desc)
     @shop_comment.destroy
     # redirect_to toilet_path(@toilet)
+    flash[:notice] = '削除が完了しました！'
     render :index
 
   end

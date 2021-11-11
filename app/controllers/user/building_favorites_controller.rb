@@ -1,4 +1,5 @@
 class User::BuildingFavoritesController < ApplicationController
+  before_action :authenticate_user!
   def create
     @building = Building.find(params[:building_id])
     @favorite = current_user.building_favorites.new(building_id: @building.id)

@@ -1,4 +1,5 @@
 class User::ShopFavoritesController < ApplicationController
+  before_action :authenticate_user!
   def create
     @shop = Shop.find(params[:shop_id])
     @favorite = current_user.shop_favorites.new(shop_id: @shop.id)
