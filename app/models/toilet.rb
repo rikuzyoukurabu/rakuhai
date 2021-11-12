@@ -2,6 +2,7 @@ class Toilet < ApplicationRecord
   belongs_to :area
   has_many :toilet_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :toilet_reviews, dependent: :destroy
 
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
