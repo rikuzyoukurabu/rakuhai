@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_10_051153) do
+ActiveRecord::Schema.define(version: 2021_11_12_105219) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -42,6 +42,14 @@ ActiveRecord::Schema.define(version: 2021_11_10_051153) do
   create_table "building_favorites", force: :cascade do |t|
     t.integer "user_id"
     t.integer "building_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "building_reviews", force: :cascade do |t|
+    t.integer "building_id"
+    t.integer "user_id"
+    t.string "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -86,6 +94,14 @@ ActiveRecord::Schema.define(version: 2021_11_10_051153) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "shop_reviews", force: :cascade do |t|
+    t.integer "shop_id"
+    t.integer "user_id"
+    t.string "score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "shops", force: :cascade do |t|
     t.string "area_id"
     t.string "shop_name"
@@ -100,6 +116,14 @@ ActiveRecord::Schema.define(version: 2021_11_10_051153) do
     t.string "user_id"
     t.text "comment"
     t.string "image_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "toilet_reviews", force: :cascade do |t|
+    t.integer "toilet_id"
+    t.integer "user_id"
+    t.string "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
