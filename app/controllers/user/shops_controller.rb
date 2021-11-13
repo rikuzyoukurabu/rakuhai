@@ -1,6 +1,6 @@
 class User::ShopsController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+
   def index
   end
 
@@ -8,6 +8,7 @@ class User::ShopsController < ApplicationController
     @shop = Shop.find(params[:id])
     @shop_comment = ShopComment.new
     @comments = @shop.shop_comments.order(created_at: :desc)
+    @shop_review = ShopReview.new
     # descを使用してコメント作成順に表示させる
   end
 
