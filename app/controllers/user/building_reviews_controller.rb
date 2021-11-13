@@ -1,16 +1,15 @@
 class User::BuildingReviewsController < ApplicationController
   before_action :authenticate_user!
   def create
-    @building = Builing.find(params[:building_id])
-    @building_review = BuilingReview.new(review_params)
+    @building = Building.find(params[:building_id])
+    @building_review = BuildingReview.new(review_params)
     @building_review.user_id = current_user.id
     # @toilet_review.toilet_id = @toilet.id
     @building_review.save
     flash[:notice] = 'レビュー投稿が完了しました！'
     redirect_to building_path(@building)
-
   end
-  
+
   private
   def review_params
     params.require(:building_review).permit(:building_id,:score)

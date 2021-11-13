@@ -1,6 +1,5 @@
 class User::BuildingsController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
   def index
   end
 
@@ -8,6 +7,7 @@ class User::BuildingsController < ApplicationController
     @building = Building.find(params[:id])
     @building_comment = BuildingComment.new
     @comments = @building.building_comments.order(created_at: :desc)
+    @building_review = BuildingReview.new
     # descを使用してコメント作成順に表示させる
   end
 
