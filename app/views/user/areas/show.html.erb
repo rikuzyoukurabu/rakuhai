@@ -69,6 +69,16 @@
                   <%= link_to "コメントはコチラ",shop_path(shop),class: "btn btn-primary m-1" %></p></td>
               <td><%= link_to "編集",edit_shop_path(shop),class: "btn btn-primary btn-circle m-1" %><br><br>
                   <%= link_to "削除",shop_path(shop),method: :delete ,class: "btn btn-danger btn-circle m-1" %></td>
+              <td>
+                <div class="content average-score">
+                  <div class="star-rating mb-2">
+                    <div class="star-rating-front" style="width: <%= shop.review_score_percentage %>%">★★★★★</div>
+                    <!--<div class="star-rating-back">★★★★★</div>-->
+                  </div>
+                  <div class="average-score-display ml-3 pt-2">
+                      <%= shop.avg_score %>点<%= shop.shop_reviews.count %>件のレビュー
+                  </div>
+              </td>
             </tr>
             <% end %>
           </tbody>

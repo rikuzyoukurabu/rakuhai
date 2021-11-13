@@ -1,5 +1,6 @@
 class User::ToiletReviewsController < ApplicationController
   before_action :authenticate_user!
+  
   def create
     @toilet = Toilet.find(params[:toilet_id])
     @toilet_review = ToiletReview.new(review_params)
