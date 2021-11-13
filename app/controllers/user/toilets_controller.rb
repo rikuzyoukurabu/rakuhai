@@ -1,6 +1,6 @@
 class User::ToiletsController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+  
   def index
   end
 
@@ -8,6 +8,7 @@ class User::ToiletsController < ApplicationController
     @toilet = Toilet.find(params[:id])
     @toilet_comment = ToiletComment.new
     @comments = @toilet.toilet_comments.order(created_at: :desc)
+    @toilet_review = ToiletReview.new
     # descを使用してコメント作成順に表示させる
   end
 

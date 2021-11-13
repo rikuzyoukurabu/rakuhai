@@ -1,6 +1,6 @@
 class User::ShopCommentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+  before_action :ensure_correct_user, only: [:edit, :update]
   def create
     @shop = Shop.find(params[:shop_id])
     @shop_comment = ShopComment.new(shop_comment_params)
