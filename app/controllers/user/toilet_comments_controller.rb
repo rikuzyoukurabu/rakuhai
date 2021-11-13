@@ -1,6 +1,6 @@
 class User::ToiletCommentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+  
 
   def create
     @toilet = Toilet.find(params[:toilet_id])
@@ -12,7 +12,9 @@ class User::ToiletCommentsController < ApplicationController
     @toilet_comment.save
     flash[:notice] = '投稿が完了しました！'
     # redirect_to toilet_path(@toilet)
-    render :index
+      render :index
+    
+ 
 
   end
 
@@ -32,8 +34,8 @@ class User::ToiletCommentsController < ApplicationController
   #   @user = User.find(params[:id])
   #   # @toilet_comments = ToiletComments.find(params[:id])
   # end
-
+  private
   def toilet_comment_params
-    params.require(:toilet_comment).permit(:comment, :image)
+    params.require(:toilet_comment).permit(:comment,:image)
   end
 end

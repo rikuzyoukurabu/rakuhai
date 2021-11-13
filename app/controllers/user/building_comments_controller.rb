@@ -1,6 +1,6 @@
 class User::BuildingCommentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+  before_action :ensure_correct_user, only: [:edit, :update]
   def create
     @building = Building.find(params[:building_id])
     @building_comment = BuildingComment.new(building_comment_params)

@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
     resources :toilets,only:[:index,:show,:new,:create,:edit,:update,:destroy] do
       resources :toilet_comments,only:[:create,:destroy]
+      resources :toilet_reviews,only:[:create]
       resource :favorites,only:[:create,:destroy]
     end
     resources :buildings,only:[:index,:show,:new,:create,:edit,:update,:destroy] do

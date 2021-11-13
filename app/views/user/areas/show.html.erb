@@ -12,6 +12,7 @@
               <th>トイレ名</th>
               <th>説明</th>
               <th>編集削除ボタン</th>
+              <th>レビュー</th>
             </tr>
           </thead>
             <%= link_to "トイレ新規投稿", new_toilet_path, class:"header-button btn text-light" %>
@@ -25,6 +26,14 @@
                   <%= link_to "コメントはコチラ",toilet_path(toilet),class: "btn btn-primary m-1" %></p></td>
               <td><%= link_to "編集",edit_toilet_path(toilet),class: "btn btn-primary btn-circle m-1" %><br><br>
                   <%= link_to "削除",toilet_path(toilet),method: :delete ,class: "btn btn-danger btn-circle m-1" %></td>
+              <td>
+                <div class="content average-score">
+                  <div class="star-rating mb-2">
+                    <div class="star-rating-front" style="width: %">★★★★★</div>
+                    <div class="star-rating-back">★★★★★</div>
+                  </div>
+                  <div class="average-score-display ml-3 pt-2"></div>
+              </td>    
             </tr>
             <% end %>
           </tbody>
