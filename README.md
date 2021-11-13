@@ -1,24 +1,41 @@
-# README
+# 楽配くん
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+ここの建物（お店）、どうやって入るんだ！？そんな疑問を抱く配達員向け効率アプリ。<br>
+好きな時間好きな場所で働けるフードデリバリー。<br>
+ただ、初めて行く建物だとキャンセルする配達員が多いのも現状、そんな配達員の不安を解消する画期的な便利サイト「楽配くん」<br>
+初めて行く建物でも迷わなく安心して行けます。また、投稿機能により情報共有されることにより情報量が更新されていき見れる場所が増えていくのも特徴の一つです。<br>
 
-Things you may want to cover:
+### サイトテーマ
+配達効率化情報共有サイト
 
-* Ruby version
+### テーマを選んだ理由
+私は、プログラミングを通して人々の役に立つサービスを作りたいと思いプログラミングを学習しております。<br>
+今回のテーマはフードデリバリー業界のイメージアップに少しでも貢献出来たらと思い作成致しました。<br>
+お客様の注文商品を迅速に配達出来ることで、お客様にもいい印象を少しでも抱いてい頂けると嬉しいです。<br>
+このサービスが機能するこで顧客側は商品を早く受け取れ、配達員は配達時間の短縮。win:winの関係が築けます。
 
-* System dependencies
+### ターゲットユーザ
+主に配達を行っている方、全般
 
-* Configuration
+### 主な利用シーン
+・なんとなくの場所はわかるけど、詳しい行き方がわからない時<br>
+・地図アプリを利用してて、詳細な情報が出てこない時
 
-* Database creation
+## 設計書
+・テーブル定義書は<a href="https://docs.google.com/spreadsheets/d/1JaR22Lf8fGTyORVOBvXo9AuM_9KjHx4V/edit?usp=sharing&ouid=108187170357421790105&rtpof=true&sd=true">こちら</a>から
 
-* Database initialization
+・ER図は<a href="https://app.diagrams.net/#G1-mEzOxwpxDprRvzmuYSeEU3eGp2dKsLU">こちら</a>から
 
-* How to run the test suite
+## チャレンジ要素一覧
+チャレンジ要素一覧は<a href="https://docs.google.com/spreadsheets/d/10K6MqC7BCRLP1_mwf-y83EEZbCjUeHMxqt-r52AQUtw/edit?usp=sharing">こちら</a>から
 
-* Services (job queues, cache servers, search engines, etc.)
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* Deployment instructions
-
-* ...
+## 使用素材
+-フリー画像
