@@ -8,7 +8,6 @@ class User::ToiletReviewsController < ApplicationController
     @toilet_review.save
     flash[:notice] = 'レビュー投稿が完了しました！'
     redirect_to toilet_path(@toilet)
-
   end
   
   private

@@ -24,11 +24,13 @@ Rails.application.routes.draw do
     end
     resources :buildings,only:[:index,:show,:new,:create,:edit,:update,:destroy] do
       resources :building_comments,only:[:create,:destroy]
+      resources :building_reviews,only:[:create]
       resource :building_favorites,only:[:create,:destroy]
     end
 
     resources :shops,only:[:index,:show,:new,:create,:edit,:update,:destroy] do
       resources :shop_comments,only:[:create,:destroy]
+      resources :shop_reviews,only:[:create]
       resource :shop_favorites,only:[:create,:destroy]
     end
 

@@ -5,11 +5,12 @@
   <div class="row">
     <div class="col-12">
       <div class="new-post">
+        <%= render 'user/toilets/errors' , object:@building %>
         <h3>建物詳細ページ</h3>
         <p id = "favorite_buttons_<%= @building.id %>">
         <%= render 'user/building_favorites/favorite' , building: @building %>
         </p>
-        
+        <%= render 'user/building_reviews/form',building: @building, building_review: @building_review %>
           <table class="table table-bordered">
             <thead>
               <tr style="text-align: center;">

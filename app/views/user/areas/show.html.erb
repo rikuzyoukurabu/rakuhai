@@ -55,6 +55,7 @@
               <th>お店名</th>
               <th>説明</th>
               <th>編集削除ボタン</th>
+              <th>レビュー</th>
             </tr>
           </thead>
             <%= link_to "お店新規投稿", new_shop_path, class:"header-button btn text-light" %>
@@ -87,6 +88,7 @@
               <th>建物名</th>
               <th>説明</th>
               <th>編集削除ボタン</th>
+              <th>レビュー</th>
             </tr>
           </thead>
             <%= link_to "建物新規投稿", new_building_path, class:"header-button btn text-light" %>
@@ -100,6 +102,16 @@
                   <%= link_to "コメントはコチラ",building_path(building),class: "btn btn-primary m-1" %></p></td>
               <td><%= link_to "編集",edit_building_path(building),class: "btn btn-primary btn-circle m-1" %><br><br>
                   <%= link_to "削除",building_path(building),method: :delete ,class: "btn btn-danger btn-circle m-1" %></td>
+              <td>
+                <div class="content average-score">
+                  <div class="star-rating mb-2">
+                    <div class="star-rating-front" style="width: <%= building.review_score_percentage %>%">★★★★★</div>
+                    <!--<div class="star-rating-back">★★★★★</div>-->
+                  </div>
+                  <div class="average-score-display ml-3 pt-2">
+                      <%= building.avg_score %>点<%= building.building_reviews.count %>件のレビュー
+                  </div>
+              </td>
             </tr>
             <% end %>
           </tbody>
