@@ -29,11 +29,13 @@
               <td>
                 <div class="content average-score">
                   <div class="star-rating mb-2">
-                    <div class="star-rating-front" style="width: %">★★★★★</div>
-                    <div class="star-rating-back">★★★★★</div>
+                    <div class="star-rating-front" style="width: <%= toilet.review_score_percentage %>%">★★★★★</div>
+                    <!--<div class="star-rating-back">★★★★★</div>-->
                   </div>
-                  <div class="average-score-display ml-3 pt-2"></div>
-              </td>    
+                  <div class="average-score-display ml-3 pt-2">
+                      <%= toilet.avg_score %>点<%= toilet.toilet_reviews.count %>件のレビュー
+                  </div>
+              </td>
             </tr>
             <% end %>
           </tbody>
