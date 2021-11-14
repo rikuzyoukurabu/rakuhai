@@ -7,7 +7,7 @@ class User::BuildingReviewsController < ApplicationController
     # @toilet_review.toilet_id = @toilet.id
     @building_review.save
     flash[:notice] = 'レビュー投稿が完了しました！'
-    redirect_to building_path(@building)
+    redirect_to area_path(@building.area.id)
   end
 
   private

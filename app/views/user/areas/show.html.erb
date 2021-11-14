@@ -11,7 +11,6 @@
               <th>写真</th>
               <th>トイレ名</th>
               <th>説明</th>
-              <th>編集削除ボタン</th>
               <th>レビュー</th>
             </tr>
           </thead>
@@ -24,8 +23,6 @@
               <td><%= toilet.introduction %>
                   <p>コメント数:<%= toilet.toilet_comments.count %>
                   <%= link_to "コメントはコチラ",toilet_path(toilet),class: "btn btn-primary m-1" %></p></td>
-              <td><%= link_to "編集",edit_toilet_path(toilet),class: "btn btn-primary btn-circle m-1" %><br><br>
-                  <%= link_to "削除",toilet_path(toilet),method: :delete ,class: "btn btn-danger btn-circle m-1" %></td>
               <td>
                 <div class="content average-score">
                   <div class="star-rating mb-2">
@@ -54,7 +51,6 @@
               <th>写真</th>
               <th>お店名</th>
               <th>説明</th>
-              <th>編集削除ボタン</th>
               <th>レビュー</th>
             </tr>
           </thead>
@@ -67,8 +63,6 @@
               <td><%= shop.introduction %>
               <p>コメント数:<%= shop.shop_comments.count %>
                   <%= link_to "コメントはコチラ",shop_path(shop),class: "btn btn-primary m-1" %></p></td>
-              <td><%= link_to "編集",edit_shop_path(shop),class: "btn btn-primary btn-circle m-1" %><br><br>
-                  <%= link_to "削除",shop_path(shop),method: :delete ,class: "btn btn-danger btn-circle m-1" %></td>
               <td>
                 <div class="content average-score">
                   <div class="star-rating mb-2">
@@ -97,7 +91,6 @@
               <th>写真</th>
               <th>建物名</th>
               <th>説明</th>
-              <th>編集削除ボタン</th>
               <th>レビュー</th>
             </tr>
           </thead>
@@ -110,8 +103,6 @@
               <td><%= building.introduction %>
               <p>コメント数:<%= building.building_comments.count %>
                   <%= link_to "コメントはコチラ",building_path(building),class: "btn btn-primary m-1" %></p></td>
-              <td><%= link_to "編集",edit_building_path(building),class: "btn btn-primary btn-circle m-1" %><br><br>
-                  <%= link_to "削除",building_path(building),method: :delete ,class: "btn btn-danger btn-circle m-1" %></td>
               <td>
                 <div class="content average-score">
                   <div class="star-rating mb-2">

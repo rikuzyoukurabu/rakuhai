@@ -8,7 +8,7 @@ class User::ShopReviewsController < ApplicationController
     # @shop_review.shop_id = @shop.id
     @shop_review.save
     flash[:notice] = 'レビュー投稿が完了しました！'
-    redirect_to shop_path(@shop)
+    redirect_to area_path(@shop.area.id)
   end
 
   private
