@@ -25,6 +25,10 @@
     margin-right: 20px;
     margin-left: 20px;
   }
+  .edit-button{
+    // margin: 0 20px 0 32em;
+    text-align: right;
+  }
   .navbar-item{
     margin: auto;
   }
@@ -126,8 +130,12 @@
   // }
 // レスポンシブ対応
  @media screen and(min-width: 1200px){
-    .image_box{
+  .image_box{
       width: 100%;
+  }
+  .edit-button{
+    margin: 0 20px 0 32em;
+    text-align: right;
   }
  }
 // .img-fluid{

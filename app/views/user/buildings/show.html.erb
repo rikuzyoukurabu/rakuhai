@@ -6,7 +6,11 @@
     <div class="col-12">
       <div class="new-post">
         <%= render 'user/toilets/errors' , object:@building %>
-        <h3>建物詳細ページ</h3>
+        <h3 style="border-bottom: solid; border-bottom-color: #dcdcdc;">建物詳細ページ</h3>
+          <div class="edit-button">
+            <%= link_to "編集",edit_building_path(@building),class: "btn btn-primary btn-circle m-1" %>
+            <%= link_to "削除",building_path(@building),method: :delete ,class: "btn btn-danger btn-circle m-1" %>
+          </div>
         <p id = "favorite_buttons_<%= @building.id %>">
         <%= render 'user/building_favorites/favorite' , building: @building %>
         </p>
