@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  toilet_id: 1
+  user_id: 1
+  score: MyString
+
+two:
+  toilet_id: 1
+  user_id: 1
+  score: MyString

@@ -1,0 +1,9 @@
+    <% if toilet.favorited_by?(current_user) %>
+      <%= link_to toilet_favorites_path(toilet),method: :delete,remote: true do %>
+        <i class="fas fa-heart"></i><%= toilet.favorites.count %>イイネ!!
+      <% end %>
+      <% else %>
+        <%= link_to toilet_favorites_path(toilet),method: :post,remote: true do %>
+          <i class="far fa-heart"></i><%= toilet.favorites.count %>イイネ!!
+      <% end %>
+    <% end %>

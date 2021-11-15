@@ -6,15 +6,26 @@
         <ul class="navbar-nav ml-auto">
           <!--右寄せにする-->
           <% if user_signed_in? %>
+            <p class="navbar-item">ようこそ<%= current_user.name %> さん</p>
+            <li><%= link_to " 地域一覧", areas_path, class:"header-button btn text-light" %></li>
+            <li><%= link_to " ニュース一覧", news_index_path, class:"header-button btn text-light" %></li>
+            <li><%= link_to " マイページ", user_path(current_user.id), class:"header-button btn text-light" %></li>
             <li><%= link_to " ログアウト", destroy_user_session_path, method: :delete, class:"header-button btn text-light" %></li>
           <% elsif admin_signed_in? %>
+            <li><%= link_to " 地域一覧", areas_path, class:"header-button btn text-light" %></li>
             <li><%= link_to " ログアウト", destroy_admin_session_path, method: :delete, class:"header-button btn text-light" %></li>
           <% else %>
+            <li><%= link_to " 地域一覧", areas_path, class:"header-button btn text-light" %></li>
+            <li><%= link_to " ニュース一覧", news_index_path, class:"header-button btn text-light" %></li>
             <li><%= link_to " About", about_path, class:"header-button btn text-light" %></li>
             <li><%= link_to " 新規登録", new_user_registration_path, class:"header-button btn text-light" %></li>
             <li><%= link_to " ログイン", new_user_session_path, class:"header-button btn text-light" %></li>
+            <li><%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class:"header-button btn text-light" %></li>
           <% end %>
         </ul>
     </div>
   </nav>
+      <% if flash[:notice] %>
+      <p class = "success"><%= flash[:notice] %></p>
+      <% end %>
 </header>

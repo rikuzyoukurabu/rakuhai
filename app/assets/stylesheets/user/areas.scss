@@ -1,0 +1,26 @@
+// Place all the styles related to the user/areas controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.star-rating{
+  postion: relative;
+  width: 5em;
+  height: 1em;
+  font-size: 15px;
+}
+.star-rating-front{
+  postion: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  color: #ffa500;
+}
+.star-rating-back{
+  color: #ccc;
+}
+.average-score{
+  display: flex;
+}
+.average-score-display{
+  font-size: 12px;
+}

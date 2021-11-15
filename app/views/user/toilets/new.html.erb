@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="new-post">
+        <%= render 'user/toilets/errors' , object:@toilet %>
+        <%= form_with model: @toilet, local:true do |f| %>
+        <h3>トイレ新規投稿</h3>
+
+          <%= f.label :画像, class: "form-label" %><br>
+          <%= f.attachment_field :image %><br><br>
+
+          <%= f.label :名前名, class: "form-label" %><br>
+          <%= f.text_field :toilet_name, class: "form-control", placeholder: "トイレ名を入力してください" %><br>
+
+          <%= f.label :説明, class: "form-label" %><br>
+          <%= f.text_field :introduction, class: "form-control", placeholder: "説明を入力してください"  %><br>
+
+          <%= f.label :地域名, class: "form-label" %><br>
+          <%= f.collection_select :area_id, Area.all, :id, :area_name, include_blank: "-- 選択してください --" %><br><br>
+          <%= f.submit '投稿', class: "btn btn-outline-dark" %>
+
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>

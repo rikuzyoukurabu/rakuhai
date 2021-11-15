@@ -1,0 +1,9 @@
+    <% if building.favorited_by?(current_user) %>
+      <%= link_to building_building_favorites_path(building),method: :delete,remote: true do %>
+        <i class="fas fa-heart"></i><%= building.building_favorites.count %>イイネ!!
+      <% end %>
+      <% else %>
+        <%= link_to building_building_favorites_path(building),method: :post,remote: true do %>
+          <i class="far fa-heart"></i><%= building.building_favorites.count %>イイネ!!
+      <% end %>
+    <% end %>

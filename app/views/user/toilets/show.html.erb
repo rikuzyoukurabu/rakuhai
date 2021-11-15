@@ -1,0 +1,59 @@
+<h1>User::Toilets#show</h1>
+<p>Find me in app/views/user/toilets/show.html.erb</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="new-post">
+        <%= render 'user/toilets/errors' , object:@toilet %>
+        <h3 style="border-bottom: solid; border-bottom-color: #dcdcdc;">トイレ詳細画面</h3>
+          <div class="edit-button">
+            <%= link_to "編集",edit_toilet_path(@toilet),class: "btn btn-primary btn-circle m-1" %>
+            <%= link_to "削除",toilet_path(@toilet),method: :delete ,class: "btn btn-danger btn-circle m-1" %>
+          </div>
+        <p id = "favorite_buttons_<%= @toilet.id %>">
+        <%= render 'user/favorites/favorite' , toilet: @toilet %>
+        </p>
+        <%= render 'user/toilet_reviews/form',toilet: @toilet, toilet_review: @toilet_review %>
+          <table class="table table-bordered">
+            <thead>
+              <tr style="text-align: center;">
+                <th>写真</th>
+                <th>トイレ名</th>
+              <th>説明</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><%= attachment_image_tag @toilet,:image,format: 'jpeg', fallback: "new_toilet_image.jpg",size: "250x150",class: "image_box" %></td>
+                <td><%= @toilet.toilet_name %></td>
+                <td><%= @toilet.introduction %></td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+          <div class="col-12">
+            <div class="new-post">
+              <div id="comments_area">
+                <%= render "user/toilet_comments/index",comments: @comments %>
+              </div>
+            <div>
+              <%= form_with(model:[@toilet, @toilet_comment]) do |f| %>
+
+                <%= f.label :画像, class: "form-label" %><br>
+                <%= f.attachment_field :image %><br><br>
+
+                <%= f.label :コメント, class: "form-label" %><br>
+                <%= f.text_area :comment, class: "form-control",rows:'3',placeholder: "コメントをここに" %><br>
+                <%= f.submit "コメントする" %>
+              <% end %>
+           </div>
+         </div>
+        </div>
+      </div>
+    </div>

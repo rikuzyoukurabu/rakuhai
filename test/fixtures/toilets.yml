@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  toilet_name: MyString
+  introduction: MyString
+  image_id: MyString
+
+two:
+  toilet_name: MyString
+  introduction: MyString
+  image_id: MyString
