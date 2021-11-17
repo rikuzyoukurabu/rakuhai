@@ -11,6 +11,9 @@ class User < ApplicationRecord
   has_many :toilet_reviews, dependent: :destroy
   has_many :shop_reviews, dependent: :destroy
   has_many :building_reviews, dependent: :destroy
+  has_many :toilets, dependent: :destroy
+  has_many :buildings, dependent: :destroy
+  has_many :shops, dependent: :destroy
 
 
   devise :database_authenticatable, :registerable,

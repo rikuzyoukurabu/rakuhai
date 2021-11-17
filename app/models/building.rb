@@ -1,5 +1,6 @@
 class Building < ApplicationRecord
   belongs_to :area
+  belongs_to :user
   has_many :building_comments, dependent: :destroy
   has_many :building_favorites, dependent: :destroy
   has_many :building_reviews, dependent: :destroy
@@ -7,7 +8,7 @@ class Building < ApplicationRecord
   def favorited_by?(user)
     building_favorites.where(user_id: user.id).exists?
   end
-  
+
   def avg_score
     unless self.building_reviews.empty?
       building_reviews.average(:score).round(1).to_f
@@ -15,7 +16,7 @@ class Building < ApplicationRecord
       0.0
     end
   end
-  
+
   def review_score_percentage
     unless self.building_reviews.empty?
       building_reviews.average(:score).round(1).to_f*100/5

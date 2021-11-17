@@ -1,5 +1,6 @@
 class Shop < ApplicationRecord
   belongs_to :area
+  belongs_to :user
   has_many :shop_comments, dependent: :destroy
   has_many :shop_favorites, dependent: :destroy
   has_many :shop_reviews, dependent: :destroy
@@ -8,7 +9,7 @@ class Shop < ApplicationRecord
   def favorited_by?(user)
     shop_favorites.where(user_id: user.id).exists?
   end
-  
+
   def avg_score
     unless self.shop_reviews.empty?
       shop_reviews.average(:score).round(1).to_f
@@ -16,7 +17,7 @@ class Shop < ApplicationRecord
       0.0
     end
   end
-  
+
   def review_score_percentage
     unless self.shop_reviews.empty?
       shop_reviews.average(:score).round(1).to_f*100/5

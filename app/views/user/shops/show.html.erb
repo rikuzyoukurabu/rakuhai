@@ -7,10 +7,12 @@
       <div class="new-post">
         <%= render 'user/toilets/errors' , object:@shop %>
         <h3 style="border-bottom: solid; border-bottom-color: #dcdcdc;">店詳細ページ</h3>
+        <% if @user.id == current_user.id %>
           <div class="edit-button">
             <%= link_to "編集",edit_shop_path(@shop),class: "btn btn-primary btn-circle m-1" %>
             <%= link_to "削除",shop_path(@shop),method: :delete ,class: "btn btn-danger btn-circle m-1" %>
           </div>
+        <% end %>
         <p id = "favorite_buttons_<%= @shop.id %>">
         <%= render 'user/shop_favorites/favorite' , shop: @shop %>
         </p>

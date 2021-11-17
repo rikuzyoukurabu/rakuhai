@@ -8,6 +8,7 @@ class User::BuildingsController < ApplicationController
     @building_comment = BuildingComment.new
     @comments = @building.building_comments.order(created_at: :desc)
     @building_review = BuildingReview.new
+    @user = User.find(@building.user.id)
     # descを使用してコメント作成順に表示させる
   end
 
