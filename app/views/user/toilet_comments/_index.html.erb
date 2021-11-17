@@ -5,7 +5,7 @@
       <%= attachment_image_tag comment,:image,format: 'jpeg', fallback: "new_toilet_image.jpg",size: "180x130" %>
     </div>
     <div class="col-9">
-    　ユーザー名：<%= link_to comment.user.name,user_path(current_user.id) %>
+    　ユーザー名：<%= link_to comment.user.name,user_path(comment.user) %>
       <p>投稿コメント：<%= comment.comment %></p>
       <% if comment.user == current_user %>
       <%= link_to "削除",toilet_toilet_comment_path(comment.toilet,comment),method: :delete, remote: true ,class: "btn btn-danger" %>

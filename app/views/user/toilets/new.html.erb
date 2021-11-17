@@ -15,8 +15,7 @@
           <%= f.label :説明, class: "form-label" %><br>
           <%= f.text_field :introduction, class: "form-control", placeholder: "説明を入力してください"  %><br>
           
-          <%= f.label :住所, class: "form-label" %><br>
-          <%= f.text_field :address, class: "form-control", placeholder: "住所を入力してください"  %><br>
+  
 
           <%= f.label :地域名, class: "form-label" %><br>
           <%= f.collection_select :area_id, Area.all, :id, :area_name, include_blank: "-- 選択してください --" %><br><br>

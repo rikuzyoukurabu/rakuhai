@@ -1,6 +1,6 @@
 class User::ToiletsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
   end
 
@@ -9,6 +9,7 @@ class User::ToiletsController < ApplicationController
     @toilet_comment = ToiletComment.new
     @comments = @toilet.toilet_comments.order(created_at: :desc)
     @toilet_review = ToiletReview.new
+    @user = User.find(@toilet.user.id)
     # descを使用してコメント作成順に表示させる
   end
 
@@ -18,7 +19,14 @@ class User::ToiletsController < ApplicationController
   end
 
   def create
-    @toilet = Toilet.new(toilet_params)
+    @result = Map.new(params[:toilet]).result
+    @toilet = Toilet.new(
+      toilet_name: toilet_params["toilet_name"],
+      address: toilet_params["address"],
+      latitude: @results["lat"],
+      longitude: @results["lng"]
+      )
+
     if @toilet.save
       flash[:notice] = '投稿が完了しました！'
       redirect_to area_path
@@ -46,6 +54,6 @@ class User::ToiletsController < ApplicationController
 
   private
   def toilet_params
-    params.require(:toilet).permit(:toilet_name,:introduction,:image,:area_id)
+    params.require(:toilet).permit(:toilet_name,:introduction,:image,:area_id,:latitude,:longitude)
   end
 end
