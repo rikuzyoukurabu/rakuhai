@@ -1,7 +1,6 @@
 class User::ToiletCommentsController < ApplicationController
   before_action :authenticate_user!
   
-
   def create
     @toilet = Toilet.find(params[:toilet_id])
     @toilet_comment = ToiletComment.new(toilet_comment_params)
@@ -14,8 +13,6 @@ class User::ToiletCommentsController < ApplicationController
     # redirect_to toilet_path(@toilet)
       render :index
     
- 
-
   end
 
   def destroy
@@ -26,14 +23,8 @@ class User::ToiletCommentsController < ApplicationController
     # redirect_to toilet_path(@toilet)
     flash[:notice] = '削除が完了しました！'
     render :index
-
   end
 
-  # def show
-  #   @toilet = Toilet.find(params[:id])
-  #   @user = User.find(params[:id])
-  #   # @toilet_comments = ToiletComments.find(params[:id])
-  # end
   private
   def toilet_comment_params
     params.require(:toilet_comment).permit(:comment,:image)

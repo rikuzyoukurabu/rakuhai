@@ -1,2 +1,40 @@
 <h1>Admin::Buildings#show</h1>
 <p>Find me in app/views/admin/buildings/show.html.erb</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="new-post">
+        <h3 style="border-bottom: solid; border-bottom-color: #dcdcdc;">建物詳細画面</h3>
+
+          <table class="table table-bordered">
+            <thead>
+              <tr style="text-align: center;">
+                <th>写真</th>
+                <th>建物名</th>
+                <th>説明</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><%= attachment_image_tag @building,:image,format: 'jpeg', fallback: "no_image_building.jpg",size: "250x150",class: "image_box" %></td>
+                <td><%= @building.building_name %></td>
+                <td><%= @building.introduction %></td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+          <div class="col-12">
+            <div class="new-post">
+              <div id="comments_area">
+                <%= render "admin/building_comments/index",comments: @comments %>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
