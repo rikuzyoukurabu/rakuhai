@@ -41,7 +41,9 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: "homes#top"
     resources :areas,only:[:index,:show]
-    resources :toilets,only:[:index,:show,:new,:create,:edit,:update,:destroy]
+    resources :toilets,only:[:index,:show,:new,:create,:edit,:update,:destroy] do
+      resources :toilet_comments,only:[:destroy]
+    end
     resources :buildings,only:[:index,:show,:new,:create,:edit,:update,:destroy]
     resources :shops,only:[:index,:show,:new,:create,:edit,:update,:destroy]
   end
