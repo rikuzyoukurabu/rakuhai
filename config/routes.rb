@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
 
-  namespace :admin do
-    root to: "homes#top"
-  end
+
 
   devise_for :users,skip:[:passwords],controllers: {
     sessions:      'user/sessions',
@@ -41,6 +39,10 @@ Rails.application.routes.draw do
     post 'users/guest_sign_in', to: 'user/sessions#guest_sign_in'
   end
 
+  namespace :admin do
+    root to: "homes#top"
+    resources :areas,only:[:index,:show]
+  end
 
   devise_for :admin, skip: [:registrations, :passwords],controllers: {
     sessions: 'admin/sessions'
