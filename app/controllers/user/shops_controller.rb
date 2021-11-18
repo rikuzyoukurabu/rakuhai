@@ -20,9 +20,10 @@ class User::ShopsController < ApplicationController
 
   def create
     @shop = Shop.new(shop_params)
+    @shop.user_id = current_user.id
     if @shop.save
       flash[:notice] = '投稿が完了しました！'
-    redirect_to areas_path
+    redirect_to area_path(@shop.area.id)
     else
     render :new
     end

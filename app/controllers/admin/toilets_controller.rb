@@ -1,8 +1,5 @@
-class User::ToiletsController < ApplicationController
-  before_action :authenticate_user!
-
-  def index
-  end
+class Admin::ToiletsController < ApplicationController
+  before_action :authenticate_admin!
 
   def show
     @toilet = Toilet.find(params[:id])
@@ -13,22 +10,6 @@ class User::ToiletsController < ApplicationController
     # descを使用してコメント作成順に表示させる
   end
 
-  def new
-    @toilet = Toilet.new
-    @area = Area.all
-  end
-
-  def create
-    @toilet = Toilet.new(toilet_params)
-    @toilet.user_id = current_user.id
-    if @toilet.save
-      flash[:notice] = '投稿が完了しました！'
-      redirect_to area_path(@toilet.area.id)
-    else
-      render :new
-    end
-  end
-
   def edit
     @toilet = Toilet.find(params[:id])
   end
@@ -37,14 +18,15 @@ class User::ToiletsController < ApplicationController
     @toilet = Toilet.find(params[:id])
     @toilet.update(toilet_params)
     flash[:notice] = '編集が完了しました！'
-    redirect_to areas_path
+    redirect_to admin_area_path(@toilet.area.id)
   end
 
   def destroy
-    toilet = Toilet.find(params[:id])
-    toilet.destroy
-    redirect_to areas_path
+    @toilet = Toilet.find(params[:id])
+    @toilet.destroy
+    redirect_to admin_area_path(@toilet.area.id)
   end
+
 
   private
   def toilet_params

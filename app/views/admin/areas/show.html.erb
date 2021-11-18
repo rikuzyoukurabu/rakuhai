@@ -1,2 +1,127 @@
 <h1>Admin::Areas#show</h1>
 <p>Find me in app/views/admin/areas/show.html.erb</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="show-text">
+        <table class ="table table-bordered">
+          <thead>
+            <tr style="text-align: center;">
+              <th>写真</th>
+              <th>トイレ名</th>
+              <th>説明</th>
+              <th>レビュー</th>
+              <th>編集削除</th>
+            </tr>
+          </thead>
+            
+          <tbody>
+            <% @area.toilets.each do |toilet| %>
+            <tr>
+              <td><%= attachment_image_tag toilet,:image,format: 'jpeg', fallback: "new_toilet_image.jpg",size: "250x150",class: "image_box" %></td>
+              <td><%= toilet.toilet_name %></td>
+              <td><%= toilet.introduction %>
+                  <p>コメント数:<%= toilet.toilet_comments.count %>
+                  <%= link_to "コメントはコチラ",admin_toilet_path(toilet),class: "btn btn-primary m-1" %></p></td>
+              <td>
+                <div class="content average-score">
+                  <div class="star-rating mb-2">
+                    <div class="star-rating-front" style="width: <%= toilet.review_score_percentage %>%">★★★★★</div>
+                    <!--<div class="star-rating-back">★★★★★</div>-->
+                  </div>
+                  <div class="average-score-display ml-3 pt-2">
+                      <%= toilet.avg_score %>点<%= toilet.toilet_reviews.count %>件のレビュー
+                  </div>
+              </td>
+              <td>
+                <%= link_to "編集",edit_admin_toilet_path(toilet),class: "btn btn-primary btn-circle m-1" %>
+                <%= link_to "削除",admin_toilet_path(toilet),method: :delete ,class: "btn btn-danger btn-circle m-1" %>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="show-text">
+        <table class ="table table-bordered">
+          <thead>
+            <tr style="text-align: center;">
+              <th>写真</th>
+              <th>お店名</th>
+              <th>説明</th>
+              <th>レビュー</th>
+            </tr>
+          </thead>
+            <%= link_to "お店新規投稿", new_admin_shop_path, class:"header-button btn text-light" %>
+          <tbody>
+            <% @area.shops.each do |shop| %>
+            <tr>
+              <td><%= attachment_image_tag shop,:image,format: 'jpeg', fallback: "no_image_shop.jpg",size: "250x150",class: "image_box" %></td>
+              <td><%= shop.shop_name %></td>
+              <td><%= shop.introduction %>
+              <p>コメント数:<%= shop.shop_comments.count %>
+                  <%= link_to "コメントはコチラ",admin_shop_path(shop),class: "btn btn-primary m-1" %></p></td>
+              <td>
+                <div class="content average-score">
+                  <div class="star-rating mb-2">
+                    <div class="star-rating-front" style="width: <%= shop.review_score_percentage %>%">★★★★★</div>
+                    <!--<div class="star-rating-back">★★★★★</div>-->
+                  </div>
+                  <div class="average-score-display ml-3 pt-2">
+                      <%= shop.avg_score %>点<%= shop.shop_reviews.count %>件のレビュー
+                  </div>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="show-text">
+        <table class ="table table-bordered">
+          <thead>
+            <tr style="text-align: center;">
+              <th>写真</th>
+              <th>建物名</th>
+              <th>説明</th>
+              <th>レビュー</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @area.buildings.each do |building| %>
+            <tr>
+              <td><%= attachment_image_tag building,:image,format: 'jpeg', fallback: "no_image_building.jpg",size: "250x150",class: "image_box" %></td>
+              <td><%= building.building_name %></td>
+              <td><%= building.introduction %>
+              <p>コメント数:<%= building.building_comments.count %>
+                  <%= link_to "コメントはコチラ",admin_building_path(building),class: "btn btn-primary m-1" %></p></td>
+              <td>
+                <div class="content average-score">
+                  <div class="star-rating mb-2">
+                    <div class="star-rating-front" style="width: <%= building.review_score_percentage %>%">★★★★★</div>
+                    <!--<div class="star-rating-back">★★★★★</div>-->
+                  </div>
+                  <div class="average-score-display ml-3 pt-2">
+                      <%= building.avg_score %>点<%= building.building_reviews.count %>件のレビュー
+                  </div>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

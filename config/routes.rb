@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
 
-
   devise_for :users,skip:[:passwords],controllers: {
     sessions:      'user/sessions',
     registrations: 'user/registrations',
@@ -42,6 +41,9 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: "homes#top"
     resources :areas,only:[:index,:show]
+    resources :toilets,only:[:index,:show,:new,:create,:edit,:update,:destroy]
+    resources :buildings,only:[:index,:show,:new,:create,:edit,:update,:destroy]
+    resources :shops,only:[:index,:show,:new,:create,:edit,:update,:destroy]
   end
 
   devise_for :admin, skip: [:registrations, :passwords],controllers: {
