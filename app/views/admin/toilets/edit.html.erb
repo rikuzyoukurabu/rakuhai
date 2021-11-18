@@ -2,8 +2,8 @@
   <div class="row">
     <div class="col-12">
       <div class="new-post">
-        <%= form_with model: @toilet, local:true do |f| %>
-        <h3>トイレ編集画面</h3>
+        <%= form_with model: @toilet,url: admin_toilet_path,method: :patch, local:true do |f| %>
+        <h3>トイレ編集投稿</h3>
         
           <%= f.label :画像, class: "form-label" %><br>
           <%= f.attachment_field :image %><br><br>

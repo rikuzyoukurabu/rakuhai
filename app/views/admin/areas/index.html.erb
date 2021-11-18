@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <div class="index-text">
+        <table class ="table table-bordered">
+          <thead>
+            <tr>
+              <th>地域一覧</th>
+            </tr>
+          </thead>
+          <tbody>
+              <% @areas.each do |area| %>
+            <tr>
+              <td>
+                <%= link_to area.area_name,admin_area_path(area) %>
+                <%= (area.toilets + area.shops + area.buildings).count %>
+              </td>
+            </tr>
+              <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+   </div>
+  </div>

@@ -5,7 +5,7 @@ class Map < ApplicationRecord
 
   def uri
     address = URI.encode_www_form({address: @toilet_param})
-    URI.parse("https://maps.googleapis.com/maps/api/geocode/json?#{address}&key=A")
+    URI.parse("https://maps.googleapis.com/maps/api/geocode/json?#{address}&key=")
     # KEY直書きpushしないこと
   end
 

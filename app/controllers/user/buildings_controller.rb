@@ -19,9 +19,10 @@ class User::BuildingsController < ApplicationController
 
   def create
     @building = Building.new(building_params)
+    @building.user_id = current_user.id
     if @building.save
       flash[:notice] = '投稿が完了しました！'
-    redirect_to areas_path
+    redirect_to area_path(@building.area.id)
     else
     render :new
     end
