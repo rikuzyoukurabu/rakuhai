@@ -44,8 +44,12 @@ Rails.application.routes.draw do
     resources :toilets,only:[:index,:show,:new,:create,:edit,:update,:destroy] do
       resources :toilet_comments,only:[:destroy]
     end
-    resources :buildings,only:[:index,:show,:new,:create,:edit,:update,:destroy]
-    resources :shops,only:[:index,:show,:new,:create,:edit,:update,:destroy]
+    resources :buildings,only:[:index,:show,:new,:create,:edit,:update,:destroy] do
+      resources :building_comments,only:[:destroy]
+    end
+    resources :shops,only:[:index,:show,:new,:create,:edit,:update,:destroy] do
+      resources :shop_comments,only:[:destroy]
+    end
   end
 
   devise_for :admin, skip: [:registrations, :passwords],controllers: {
