@@ -57,9 +57,9 @@
               <th>お店名</th>
               <th>説明</th>
               <th>レビュー</th>
+              <th>削除編集</th>
             </tr>
           </thead>
-            <%= link_to "お店新規投稿", new_admin_shop_path, class:"header-button btn text-light" %>
           <tbody>
             <% @area.shops.each do |shop| %>
             <tr>
@@ -77,6 +77,10 @@
                   <div class="average-score-display ml-3 pt-2">
                       <%= shop.avg_score %>点<%= shop.shop_reviews.count %>件のレビュー
                   </div>
+              </td>
+              <td>
+                <%= link_to "編集",edit_admin_shop_path(shop),class: "btn btn-primary btn-circle m-1" %>
+                <%= link_to "削除",admin_shop_path(shop),method: :delete ,class: "btn btn-danger btn-circle m-1" %>
               </td>
             </tr>
             <% end %>
@@ -97,6 +101,7 @@
               <th>建物名</th>
               <th>説明</th>
               <th>レビュー</th>
+              <th>削除編集</th>
             </tr>
           </thead>
           <tbody>
@@ -116,6 +121,10 @@
                   <div class="average-score-display ml-3 pt-2">
                       <%= building.avg_score %>点<%= building.building_reviews.count %>件のレビュー
                   </div>
+              </td>
+              <td>
+                <%= link_to "編集",edit_admin_building_path(building),class: "btn btn-primary btn-circle m-1" %>
+                <%= link_to "削除",admin_building_path(building),method: :delete ,class: "btn btn-danger btn-circle m-1" %>
               </td>
             </tr>
             <% end %>
