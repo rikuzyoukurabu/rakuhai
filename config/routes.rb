@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   devise_for :users,skip:[:passwords],controllers: {
     sessions:      'user/sessions',
     registrations: 'user/registrations',
@@ -13,6 +12,7 @@ Rails.application.routes.draw do
     get "news/data"
 
     resources :areas,only:[:index,:show,:new]
+    resources :contacts, only: [:new, :create]
 
     resources :toilets,only:[:index,:show,:new,:create,:edit,:update,:destroy] do
       resources :toilet_comments,only:[:create,:destroy]
