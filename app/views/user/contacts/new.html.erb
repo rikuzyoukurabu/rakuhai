@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <%= form_with model: @contact, local: true  do |f| %>
+        
+          <%= f.label :お名前, class: "form-label" %><br>
+          <%= f.text_field :name, autofocus: true, class: 'form-control',placeholder: "名前を入力してください" %><br>
+          
+          <%= f.label :メールアドレス, class: "form-label" %><br>
+          <%= f.text_field :email, autofocus: true, class: 'form-control',placeholder: "メールアドレスを入力してください" %><br>
+          
+          <%= f.label :電話番号, class: "form-label" %><br>
+          <%= f.text_field :phone_number, autofocus: true, class: 'form-control',placeholder: "電話番号を入力してください" %><br>
+          
+          <%= f.label :タイトル, class: "form-label" %><br>
+          <%= f.text_field :subject, autofocus: true, class: 'form-control',placeholder: "タイトルを入力してください" %><br>
+        
+          <%= f.label :お問い合わせ要件, class: "form-label" %><br>
+          <%= f.text_area :message, size: '10x10', class: 'form-control',placeholder: "お問い合わせ内容をを入力してください" %><br><br>
+        
+        <div style="margin: 0 0 30px 0;">
+          <%= f.submit 'お問い合わせ送信', class: "btn btn-outline-dark" %><br>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

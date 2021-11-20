@@ -76,3 +76,4 @@ gem 'pry-byebug'
 gem 'dotenv-rails'
 gem 'geocoder'
 gem "dotenv-rails"
+gem 'rails-i18n', '~> 5.1'
