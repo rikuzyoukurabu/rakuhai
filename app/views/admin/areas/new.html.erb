@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="new-post">
+        <%= form_with model: @area, url: admin_areas_path, method: :post ,local:true do |f| %>
+        <h3>新規投稿</h3>
+        
+          <%= f.label :地域名, class: "form-label" %><br>
+          <%= f.text_field :area_name, class: "form-control", placeholder: "地域名を入力" %><br>
+          <%= f.submit '投稿', class: "btn btn-outline-dark" %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>

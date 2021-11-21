@@ -1,6 +1,3 @@
-<h1>Admin::Toilets#new</h1>
-<p>Find me in app/views/admin/toilets/new.html.erb</p>
-
 <div class="container">
   <div class="row">
     <div class="col-12">
@@ -17,8 +14,6 @@
           <%= f.label :説明, class: "form-label" %><br>
           <%= f.text_field :introduction, class: "form-control", placeholder: "説明を入力してください"  %><br>
           
-  
-
           <%= f.label :地域名, class: "form-label" %><br>
           <%= f.collection_select :area_id, Area.all, :id, :area_name, include_blank: "-- 選択してください --" %><br><br>
           <%= f.submit '投稿', class: "btn btn-outline-dark" %>
