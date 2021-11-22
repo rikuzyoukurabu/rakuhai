@@ -29,3 +29,5 @@ Area.create(area_name: "練馬区")
 Area.create(area_name: "文京区")
 Area.create(area_name: "港区")
 Area.create(area_name: "目黒区")
+
+Admin.create( email: "1@gmail.com", password:"111111")
