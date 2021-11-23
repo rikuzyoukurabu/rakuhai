@@ -8,6 +8,7 @@ class User::BuildingsController < ApplicationController
     @building_comment = BuildingComment.new
     @comments = @building.building_comments.order(created_at: :desc)
     @building_review = BuildingReview.new
+    @user = User.find(@building.user.id)
     # descを使用してコメント作成順に表示させる
   end
 
@@ -18,9 +19,10 @@ class User::BuildingsController < ApplicationController
 
   def create
     @building = Building.new(building_params)
+    @building.user_id = current_user.id
     if @building.save
       flash[:notice] = '投稿が完了しました！'
-    redirect_to areas_path
+    redirect_to area_path(@building.area.id)
     else
     render :new
     end

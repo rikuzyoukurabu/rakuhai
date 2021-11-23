@@ -1,16 +1,15 @@
-<h1>User::Toilets#show</h1>
-<p>Find me in app/views/user/toilets/show.html.erb</p>
-
 <div class="container">
   <div class="row">
     <div class="col-12">
       <div class="new-post">
         <%= render 'user/toilets/errors' , object:@toilet %>
         <h3 style="border-bottom: solid; border-bottom-color: #dcdcdc;">トイレ詳細画面</h3>
+         <% if @user.id == current_user.id %>
           <div class="edit-button">
             <%= link_to "編集",edit_toilet_path(@toilet),class: "btn btn-primary btn-circle m-1" %>
             <%= link_to "削除",toilet_path(@toilet),method: :delete ,class: "btn btn-danger btn-circle m-1" %>
           </div>
+         <% end %>
         <p id = "favorite_buttons_<%= @toilet.id %>">
         <%= render 'user/favorites/favorite' , toilet: @toilet %>
         </p>
@@ -20,7 +19,7 @@
               <tr style="text-align: center;">
                 <th>写真</th>
                 <th>トイレ名</th>
-              <th>説明</th>
+                <th>説明</th>
               </tr>
             </thead>
             <tbody>

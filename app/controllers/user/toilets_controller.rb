@@ -1,6 +1,6 @@
 class User::ToiletsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
   end
 
@@ -9,6 +9,7 @@ class User::ToiletsController < ApplicationController
     @toilet_comment = ToiletComment.new
     @comments = @toilet.toilet_comments.order(created_at: :desc)
     @toilet_review = ToiletReview.new
+    @user = User.find(@toilet.user.id)
     # descを使用してコメント作成順に表示させる
   end
 
@@ -19,9 +20,10 @@ class User::ToiletsController < ApplicationController
 
   def create
     @toilet = Toilet.new(toilet_params)
+    @toilet.user_id = current_user.id
     if @toilet.save
       flash[:notice] = '投稿が完了しました！'
-      redirect_to area_path
+      redirect_to area_path(@toilet.area.id)
     else
       render :new
     end

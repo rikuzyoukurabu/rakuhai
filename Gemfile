@@ -74,6 +74,9 @@ gem 'font-awesome-sass', '~> 5.13'
 gem 'kaminari','~> 1.2.1'
 gem 'pry-byebug'
 gem 'dotenv-rails'
+gem 'geocoder'
+gem "dotenv-rails"
+gem 'rails-i18n', '~> 5.1'
 group :production do
   gem 'mysql2'
 end

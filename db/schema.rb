@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_12_105219) do
+ActiveRecord::Schema.define(version: 2021_11_20_104759) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 2021_11_12_105219) do
     t.string "image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -71,9 +72,24 @@ ActiveRecord::Schema.define(version: 2021_11_12_105219) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "contacts", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "phone_number"
+    t.integer "subject"
+    t.text "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
     t.integer "toilet_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "maps", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -109,6 +125,7 @@ ActiveRecord::Schema.define(version: 2021_11_12_105219) do
     t.string "image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "toilet_comments", force: :cascade do |t|
@@ -135,6 +152,10 @@ ActiveRecord::Schema.define(version: 2021_11_12_105219) do
     t.string "area_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "address"
+    t.float "longitude"
+    t.float "latitude"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|

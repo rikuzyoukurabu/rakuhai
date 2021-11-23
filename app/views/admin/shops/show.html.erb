@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="new-post">
+        <h3 style="border-bottom: solid; border-bottom-color: #dcdcdc;">店詳細画面</h3>
+
+          <table class="table table-bordered">
+            <thead>
+              <tr style="text-align: center;">
+                <th>写真</th>
+                <th>店名</th>
+                <th>説明</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><%= attachment_image_tag @shop,:image,format: 'jpeg', fallback: "no_image_shop.jpg",size: "250x150",class: "image_box" %></td>
+                <td><%= @shop.shop_name %></td>
+                <td><%= @shop.introduction %></td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+          <div class="col-12">
+            <div class="new-post">
+              <div id="comments_area">
+                <%= render "admin/shop_comments/index",comments: @comments %>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>

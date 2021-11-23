@@ -9,6 +9,7 @@ class User::ShopsController < ApplicationController
     @shop_comment = ShopComment.new
     @comments = @shop.shop_comments.order(created_at: :desc)
     @shop_review = ShopReview.new
+    @user = User.find(@shop.user.id)
     # descを使用してコメント作成順に表示させる
   end
 
@@ -19,9 +20,10 @@ class User::ShopsController < ApplicationController
 
   def create
     @shop = Shop.new(shop_params)
+    @shop.user_id = current_user.id
     if @shop.save
       flash[:notice] = '投稿が完了しました！'
-    redirect_to areas_path
+    redirect_to area_path(@shop.area.id)
     else
     render :new
     end

@@ -9,10 +9,12 @@
             <p class="navbar-item">ようこそ<%= current_user.name %> さん</p>
             <li><%= link_to " 地域一覧", areas_path, class:"header-button btn text-light" %></li>
             <li><%= link_to " ニュース一覧", news_index_path, class:"header-button btn text-light" %></li>
+            <li><%= link_to " お問い合わせ", new_contact_path, class:"header-button btn text-light" %></li>
             <li><%= link_to " マイページ", user_path(current_user.id), class:"header-button btn text-light" %></li>
             <li><%= link_to " ログアウト", destroy_user_session_path, method: :delete, class:"header-button btn text-light" %></li>
           <% elsif admin_signed_in? %>
-            <li><%= link_to " 地域一覧", areas_path, class:"header-button btn text-light" %></li>
+            <li><%= link_to " 投稿管理", admin_areas_path, class:"header-button btn text-light" %></li>
+            <li><%= link_to " エリア新規投稿", new_admin_area_path, class:"header-button btn text-light" %></li>
             <li><%= link_to " ログアウト", destroy_admin_session_path, method: :delete, class:"header-button btn text-light" %></li>
           <% else %>
             <li><%= link_to " 地域一覧", areas_path, class:"header-button btn text-light" %></li>

@@ -1,6 +1,3 @@
-<h1>User::Users#show</h1>
-<p>Find me in app/views/user/users/show.html.erb</p>
-
 <div class="container">
   <div class="row">
     <div class="col-12">
@@ -14,10 +11,6 @@
         <div class="comment">
           <p>トイレ名：<%= toilet_comment.toilet.toilet_name %></p>
           <p>投稿コメント：<%= toilet_comment.comment %></p>
-
-          <!--<% if toilet_comment.user == current_user %>-->
-          <!--  <%= link_to "削除",toilet_toilet_comment_path(toilet_comment.toilet,toilet_comment.comment),method: :delete ,class: "btn btn-danger" %>-->
-          <!--<% end %>-->
         </div>
           <% end %>
           

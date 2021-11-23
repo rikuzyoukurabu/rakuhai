@@ -1,0 +1,16 @@
+<h3>コメント数:<%= comments.count %></h3>
+<% comments.each do |comment| %>
+  <div class="row" style="margin: 10px">
+    <div class="col-3" style="text-align: center;">
+      <%= attachment_image_tag comment,:image,format: 'jpeg', fallback: "no_image_building.jpg",size: "180x130" %>
+    </div>
+    <div class="col-9">
+    　ユーザー名：<%= comment.user.name %>
+      <p>投稿コメント：<%= comment.comment %></p>
+      <%= link_to "削除",admin_building_building_comment_path(comment.building,comment),method: :delete, remote: true ,class: "btn btn-danger" %>
+      <div class="create-date">
+        <span><%= comment.created_at.strftime('%Y/%m/%d %H:%M:%S') %></span>
+      </div>
+    </div>
+  </div>
+<% end %>
